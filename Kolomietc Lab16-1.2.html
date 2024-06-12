@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Наведення на посилання</title>
+</head>
+<body>
+
+<!-- Три посилання з текстом -->
+<a href="#" id="link1">Посилання 1</a>
+<a href="#" id="link2">Посилання 2</a>
+<a href="#" id="link3">Посилання 3</a>
+
+<script>
+// Отримуємо посилання за допомогою id
+const link1 = document.getElementById('link1');
+const link2 = document.getElementById('link2');
+const link3 = document.getElementById('link3');
+
+// Функція, що встановлює title при наведенні на посилання
+function setLinkTitle(event) {
+    event.target.title = event.target.textContent;
+}
+
+// Функція, що видаляє title при відведенні миші від посилання
+function removeLinkTitle(event) {
+    event.target.title = '';
+}
+
+// Додаємо обробники подій для наведення та відведення миші на посилання
+link1.addEventListener('mouseover', setLinkTitle);
+link1.addEventListener('mouseout', removeLinkTitle);
+
+link2.addEventListener('mouseover', setLinkTitle);
+link2.addEventListener('mouseout', removeLinkTitle);
+
+link3.addEventListener('mouseover', setLinkTitle);
+link3.addEventListener('mouseout', removeLinkTitle);
+
+// При бажанні можна також використовувати одну функцію для обох подій:
+// link1.addEventListener('mouseover', handleLinkHover);
+// link1.addEventListener('mouseout', handleLinkHover);
+
+// function handleLinkHover(event) {
+//     if (event.type === 'mouseover') {
+//         event.target.title = event.target.textContent;
+//     } else if (event.type === 'mouseout') {
+//         event.target.title = '';
+//     }
+// }
+
+// Наприклад, можна використовувати одну функцію для всіх посилань, передаючи event.target.title = event.target.textContent;
+
+// Видалення обробників подій (не потрібно для цього завдання, але на випадок, якщо треба буде відв'язати):
+// link1.removeEventListener('mouseover', setLinkTitle);
+// link1.removeEventListener('mouseout', removeLinkTitle);
+
+// link2.removeEventListener('mouseover', setLinkTitle);
+// link2.removeEventListener('mouseout', removeLinkTitle);
+
+// link3.removeEventListener('mouseover', setLinkTitle);
+// link3.removeEventListener('mouseout', removeLinkTitle);
+
+</script>
+
+</body>
+</html>

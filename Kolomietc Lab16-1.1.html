@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Обробка події onclick на зображенні</title>
+<style>
+    /* Стилі для зображень, щоб вони були видимими */
+    img {
+        width: 200px;
+        height: 300px;
+        margin: 10px;
+        cursor: pointer; /* Змінюємо курсор на покажчик, щоб вказати на можливість клікнути */
+    }
+</style>
+</head>
+<body>
+
+<!-- Три зображення з вказаними шляхами src -->
+<img id="image1" src="path/to/image1.jpg" onclick="showSrc(this)">
+<img id="image2" src="path/to/image2.jpg" onclick="showSrc(this)">
+<img id="image3" src="path/to/image3.jpg" onclick="showSrc(this)">
+
+<script>
+// JavaScript код для виведення src при кліку на зображення
+function showSrc(img) {
+    // Отримуємо значення атрибуту src і виводимо його в alert
+    alert(img.src);
+}
+</script>
+
+</body>
+</html>

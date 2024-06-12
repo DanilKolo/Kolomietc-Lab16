@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Наведення на посилання з href</title>
+</head>
+<body>
+
+<!-- Три посилання з вказаними href -->
+<a href="https://example.com" id="link1">Посилання 1</a>
+<a href="https://google.com" id="link2">Посилання 2</a>
+<a href="https://github.com" id="link3">Посилання 3</a>
+
+<script>
+// Отримуємо посилання за допомогою id
+const link1 = document.getElementById('link1');
+const link2 = document.getElementById('link2');
+const link3 = document.getElementById('link3');
+
+// Функція для додавання href у круглих дужках в кінець тексту посилання
+function appendHref(event) {
+    event.target.textContent += ` (${event.target.href})`;
+}
+
+// Функція для видалення доданого href з кінця тексту посилання
+function removeHref(event) {
+    event.target.textContent = event.target.textContent.replace(/\s+\(.+\)$/, '');
+}
+
+// Додаємо обробники подій для наведення та відведення миші на посилання
+link1.addEventListener('mouseover', appendHref);
+link1.addEventListener('mouseout', removeHref);
+
+link2.addEventListener('mouseover', appendHref);
+link2.addEventListener('mouseout', removeHref);
+
+link3.addEventListener('mouseover', appendHref);
+link3.addEventListener('mouseout', removeHref);
+
+// При бажанні можна також використовувати одну функцію для обох подій:
+// link1.addEventListener('mouseover', handleLinkHover);
+// link1.addEventListener('mouseout', handleLinkHover);
+
+// function handleLinkHover(event) {
+//     if (event.type === 'mouseover') {
+//         event.target.textContent += ` (${event.target.href})`;
+//     } else if (event.type === 'mouseout') {
+//         event.target.textContent = event.target.textContent.replace(/\s+\(.+\)$/, '');
+//     }
+// }
+
+// Наприклад, можна використовувати одну функцію для всіх посилань, передаючи event.target.textContent += ` (${event.target.href})` і event.target.textContent = event.target.textContent.replace(/\s+\(.+\)$/, '');
+
+// Видалення обробників подій (не потрібно для цього завдання, але на випадок, якщо треба буде відв'язати):
+// link1.removeEventListener('mouseover', appendHref);
+// link1.removeEventListener('mouseout', removeHref);
+
+// link2.removeEventListener('mouseover', appendHref);
+// link2.removeEventListener('mouseout', removeHref);
+
+// link3.removeEventListener('mouseover', appendHref);
+// link3.removeEventListener('mouseout', removeHref);
+
+</script>
+
+</body>
+</html>

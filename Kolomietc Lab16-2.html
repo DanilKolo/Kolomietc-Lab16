@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Зміна кольору фону елементів</title>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border: 1px solid black;
+        text-align: center;
+        line-height: 100px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<!-- Три елементи div -->
+<div id="div1" class="box">Div 1</div>
+<div id="div2" class="box">Div 2</div>
+<div id="div3" class="box">Div 3</div>
+
+<script>
+// Отримуємо посилання на елементи div
+const div1 = document.getElementById('div1');
+const div2 = document.getElementById('div2');
+const div3 = document.getElementById('div3');
+
+// Функція для фарбування елементу в червоний колір
+function paintRed(event) {
+    event.target.style.backgroundColor = 'red';
+    // Видаляємо обробник події paintRed і додаємо обробник paintGreen
+    event.target.removeEventListener('click', paintRed);
+    event.target.addEventListener('click', paintGreen);
+}
+
+// Функція для фарбування елементу в зелений колір
+function paintGreen(event) {
+    event.target.style.backgroundColor = 'green';
+    // Видаляємо обробник події paintGreen і додаємо обробник paintRed
+    event.target.removeEventListener('click', paintGreen);
+    event.target.addEventListener('click', paintRed);
+}
+
+// Додаємо початкові обробники подій
+div1.addEventListener('click', paintRed);
+div2.addEventListener('click', paintRed);
+div3.addEventListener('click', paintRed);
+
+</script>
+
+</body>
+</html>
